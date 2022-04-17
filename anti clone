@@ -1,0 +1,21 @@
+var MyHostName =  "www.mydomain.com";
+if (0 == document.location.href.indexOf("https://")) 
+{
+    MyHostName = "https://" + MyHostName + "/";
+    if (0 != document.location.href.indexOf(MyHostName)) {
+        var new_location = document.location.href.replace(/https:\/\/[^\/]+\//, MyHostName);
+
+        if(new_location != document.location.href)
+            document.location.replace(new_location);
+    }
+}
+else
+{
+    MyHostName = "http://" + MyHostName + "/";
+    if (0 != document.location.href.indexOf(MyHostName)) {
+        var new_location = document.location.href.replace(/http:\/\/[^\/]+\//, MyHostName);
+
+        if(new_location != document.location.href)
+            document.location.replace(new_location);
+    }
+}
